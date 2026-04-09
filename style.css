@@ -270,10 +270,35 @@ section:nth-child(even) { background: var(--gray); }
   margin-bottom: 0.75rem;
 }
 
+.cert-card.featured {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  border-top: 4px solid #f0c040;
+  background: linear-gradient(135deg, #fffdf0, #fff8e1);
+}
+
+.cert-card.featured .cert-badge-img {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.cert-card.featured .featured-body { flex: 1; }
+
 .cert-card.expert .cert-level   { background: #fff3cd; color: #856404; }
 .cert-card.advanced .cert-level { background: #d1e7dd; color: #0a5232; }
 .cert-card.pro .cert-level      { background: #cfe2ff; color: #084298; }
 .cert-card.associate .cert-level{ background: #e2e3e5; color: #41464b; }
+
+.cert-badge-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.75rem;
+}
 
 .cert-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
 .cert-card .cert-id { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
