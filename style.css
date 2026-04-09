@@ -6,32 +6,34 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Backgrounds */
-  --bg:          #07080f;
-  --surface:     #0c0e18;
-  --surface2:    #111423;
-  --surface3:    #161928;
+  /* Backgrounds — light */
+  --bg:          #ffffff;
+  --surface:     #f5f7fa;
+  --surface2:    #ffffff;
+  --surface3:    #eef2fb;
 
-  /* Borders */
-  --border:      #1c1f35;
-  --border2:     #252843;
-  --border3:     #303560;
+  /* Borders — light */
+  --border:      #dde3f5;
+  --border2:     #c8d4ee;
+  --border3:     #a0b8e0;
 
-  /* Text */
-  --text:        #dde3f5;
-  --muted:       #56607e;
-  --dim:         #2e3352;
+  /* Text — dark */
+  --text:        #1a1a2e;
+  --muted:       #5a6a80;
+  --dim:         #9aaec8;
 
-  /* Accents */
-  --amber:       #f59e0b;
-  --amber-dim:   rgba(245, 158, 11, 0.12);
-  --amber-glow:  0 0 32px rgba(245, 158, 11, 0.22);
-  --blue:        #7dd3fc;
-  --blue-dim:    rgba(125, 211, 252, 0.08);
-  --blue-glow:   0 0 32px rgba(125, 211, 252, 0.18);
-  --green:       #6ee7b7;
-  --green-dim:   rgba(110, 231, 183, 0.09);
+  /* Accents — navy/blue */
+  --amber:       #2d8cff;
+  --amber-dim:   rgba(45, 140, 255, 0.08);
+  --amber-glow:  0 0 28px rgba(45, 140, 255, 0.2);
+  --blue:        #1b4f8a;
+  --blue-dim:    rgba(27, 79, 138, 0.08);
+  --blue-glow:   0 0 28px rgba(27, 79, 138, 0.18);
+  --green:       #16a34a;
+  --green-dim:   rgba(22, 163, 74, 0.08);
   --white:       #ffffff;
+
+  --card-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
 
   /* Typography */
   --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
@@ -78,7 +80,7 @@ nav {
   top: 0;
   z-index: 100;
   height: 54px;
-  background: rgba(7, 8, 15, 0.82);
+  background: rgba(13, 27, 42, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -125,7 +127,7 @@ nav ul a.active { color: var(--amber); background: var(--amber-dim); }
    ============================================= */
 #hero {
   position: relative;
-  background: var(--bg);
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b4f8a 100%);
   overflow: hidden;
   padding: 7rem 2.5rem 9rem;
   clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
@@ -149,8 +151,8 @@ nav ul a.active { color: var(--amber); background: var(--amber-dim); }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 10% 70%, rgba(245, 158, 11, 0.09) 0%, transparent 55%),
-    radial-gradient(ellipse at 90% 15%, rgba(125, 211, 252, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 10% 70%, rgba(45, 140, 255, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 15%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -235,9 +237,23 @@ nav ul a.active { color: var(--amber); background: var(--amber-dim); }
 
 .contact-bar a:hover {
   color: var(--amber);
-  border-color: rgba(245, 158, 11, 0.5);
+  border-color: rgba(45, 140, 255, 0.5);
   background: var(--amber-dim);
   text-decoration: none;
+}
+
+/* Hero is always dark — keep pills white-on-dark */
+#hero .contact-bar a,
+#hero .contact-bar span {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+#hero .contact-bar a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--white);
 }
 
 /* Stats strip */
@@ -356,7 +372,7 @@ section:nth-child(even) {
   left: 0;
   height: 1px;
   width: 0;
-  background: linear-gradient(90deg, var(--amber) 0%, rgba(245,158,11,0.2) 60%, transparent 100%);
+  background: linear-gradient(90deg, var(--amber) 0%, rgba(45,140,255,0.2) 60%, transparent 100%);
   transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
 }
 
@@ -369,7 +385,7 @@ section:nth-child(even) {
   letter-spacing: 1.5px;
   color: var(--amber);
   background: var(--amber-dim);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(45, 140, 255, 0.25);
   border-radius: 3px;
   padding: 0.18rem 0.5rem;
   flex-shrink: 0;
@@ -465,7 +481,7 @@ section:nth-child(even) {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--blue);
-  border: 1px solid rgba(125, 211, 252, 0.25);
+  border: 1px solid rgba(27, 79, 138, 0.25);
   border-radius: 2px;
   padding: 0.12rem 0.5rem;
   margin-bottom: 0.65rem;
@@ -504,7 +520,7 @@ section:nth-child(even) {
   background: linear-gradient(90deg, var(--amber), transparent);
 }
 
-.edu-card:hover { border-color: rgba(245, 158, 11, 0.35); }
+.edu-card:hover { border-color: rgba(45, 140, 255, 0.35); }
 
 .edu-card h3 {
   font-family: var(--font-heading);
@@ -541,6 +557,7 @@ section:nth-child(even) {
 .cert-card {
   background: var(--surface2);
   border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
   border-radius: var(--radius);
   padding: 1.4rem 1.5rem;
   position: relative;
@@ -563,8 +580,8 @@ section:nth-child(even) {
 .cert-card.associate::before{ background: linear-gradient(90deg, var(--dim), transparent 80%); }
 
 /* Hover glow per tier */
-.cert-card.expert:hover   { border-color: rgba(245,158,11,0.4);  box-shadow: var(--amber-glow); }
-.cert-card.advanced:hover { border-color: rgba(125,211,252,0.35); box-shadow: var(--blue-glow); }
+.cert-card.expert:hover   { border-color: rgba(45,140,255,0.4);  box-shadow: var(--amber-glow); }
+.cert-card.advanced:hover { border-color: rgba(27,79,138,0.35); box-shadow: var(--blue-glow); }
 .cert-card.pro:hover      { border-color: rgba(110,231,183,0.35); box-shadow: 0 0 32px rgba(110,231,183,0.14); }
 .cert-card.associate:hover{ border-color: var(--border2); }
 
@@ -590,8 +607,8 @@ section:nth-child(even) {
   margin-bottom: 0.7rem;
 }
 
-.cert-card.expert .cert-level   { color: var(--amber); background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.2); }
-.cert-card.advanced .cert-level { color: var(--blue);  background: var(--blue-dim);  border: 1px solid rgba(125,211,252,0.2); }
+.cert-card.expert .cert-level   { color: var(--amber); background: var(--amber-dim); border: 1px solid rgba(45,140,255,0.2); }
+.cert-card.advanced .cert-level { color: var(--blue);  background: var(--blue-dim);  border: 1px solid rgba(27,79,138,0.2); }
 .cert-card.pro .cert-level      { color: var(--green); background: var(--green-dim); border: 1px solid rgba(110,231,183,0.2); }
 .cert-card.associate .cert-level{ color: var(--muted); background: var(--surface);   border: 1px solid var(--border2); }
 
@@ -632,7 +649,7 @@ section:nth-child(even) {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
-  background: linear-gradient(140deg, var(--surface2) 0%, #1a1428 100%);
+  background: linear-gradient(140deg, #eef4ff 0%, #e0ecff 100%);
   border-color: rgba(245, 158, 11, 0.2);
   position: relative;
   overflow: hidden;
@@ -659,7 +676,7 @@ section:nth-child(even) {
   top: 0; left: -120%;
   width: 55%;
   height: 100%;
-  background: linear-gradient(110deg, transparent 35%, rgba(245,158,11,0.1) 50%, transparent 65%);
+  background: linear-gradient(110deg, transparent 35%, rgba(45,140,255,0.12) 50%, transparent 65%);
   animation: shimmer 5s ease-in-out infinite 2.5s;
   pointer-events: none;
 }
@@ -687,6 +704,7 @@ section:nth-child(even) {
 .project-card {
   background: var(--surface2);
   border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
   border-radius: var(--radius);
   overflow: hidden;
   display: flex;
@@ -696,12 +714,12 @@ section:nth-child(even) {
 }
 
 .project-card:hover {
-  border-color: rgba(125, 211, 252, 0.3);
+  border-color: rgba(27, 79, 138, 0.3);
   box-shadow: var(--blue-glow);
 }
 
 .project-header {
-  background: linear-gradient(135deg, var(--surface2) 0%, #0d1525 100%);
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b4f8a 100%);
   padding: 1.75rem;
   border-bottom: 1px solid var(--border);
   position: relative;
@@ -759,7 +777,7 @@ section:nth-child(even) {
    ============================================= */
 .achievement-card {
   background: var(--surface2);
-  border: 1px solid rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(45, 140, 255, 0.18);
   border-radius: var(--radius);
   padding: 2rem;
   display: flex;
