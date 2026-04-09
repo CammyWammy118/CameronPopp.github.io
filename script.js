@@ -60,14 +60,28 @@ sections.forEach(s => navObserver.observe(s));
    ============================================= */
 function initTilt(selector, intensity = 7) {
   document.querySelectorAll(selector).forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width  - 0.5;
-      const y = (e.clientY - r.top)  / r.height - 0.5;
-      card.style.transform =
-        `perspective(700px) rotateX(${-y * intensity}deg) rotateY(${x * intensity}deg) translateY(-4px)`;
+    let frame;
+
+    card.addEventListener('mouseenter', () => {
+      // Kill transition so updates are instant while hovering
+      card.style.transition = 'border-color 0.25s, box-shadow 0.25s';
     });
+
+    card.addEventListener('mousemove', e => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5;
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform =
+          `perspective(700px) rotateX(${-y * intensity}deg) rotateY(${x * intensity}deg) translateY(-4px)`;
+      });
+    });
+
     card.addEventListener('mouseleave', () => {
+      if (frame) cancelAnimationFrame(frame);
+      // Re-enable transition for smooth return to flat
+      card.style.transition = 'border-color 0.25s, box-shadow 0.25s, transform 0.4s cubic-bezier(0.22,1,0.36,1)';
       card.style.transform = '';
     });
   });
