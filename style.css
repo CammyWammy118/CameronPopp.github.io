@@ -391,6 +391,164 @@ section:nth-child(even) { background: var(--gray); }
   font-weight: 500;
 }
 
+/* ===== SCROLL PROGRESS BAR ===== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #7ec8ff);
+  z-index: 999;
+  transition: width 0.08s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ===== HERO ENTRANCE ANIMATIONS ===== */
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#hero h1 {
+  animation: heroSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+}
+
+#hero .subtitle {
+  animation: heroSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+}
+
+#hero .contact-bar {
+  animation: heroSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.5s both;
+}
+
+#hero .hero-stats {
+  animation: heroSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.7s both;
+}
+
+/* ===== HERO STATS ===== */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 2rem;
+}
+
+.hero-stat {
+  text-align: center;
+  padding: 0 2.5rem;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat .stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  display: block;
+}
+
+.hero-stat .stat-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+              transform 0.65s cubic-bezier(0.22,1,0.36,1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ACTIVE NAV LINK ===== */
+nav ul a.active {
+  background: rgba(255,255,255,0.18);
+  color: var(--white);
+}
+
+/* ===== CSWE SHIMMER ===== */
+.cert-card.featured {
+  overflow: hidden;
+  position: relative;
+}
+
+.cert-card.featured::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+  animation: shimmer 4s ease-in-out infinite 1.5s;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%   { left: -120%; }
+  45%  { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* ===== BADGE FLOAT ANIMATION ===== */
+.cert-card.featured .cert-badge-img {
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0px);    }
+  50%       { transform: translateY(-7px);   }
+}
+
+/* ===== SECTION TITLE UNDERLINE GROW ===== */
+.section-title {
+  border-bottom: none;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1) 0.2s;
+  border-radius: 2px;
+}
+
+.section-title.is-visible::after { width: 100%; }
+
+/* ===== CARD TILT TRANSITION ===== */
+.cert-card:not(.featured),
+.project-card,
+.achievement-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform;
+}
+
 /* ===== FOOTER ===== */
 footer {
   background: var(--navy);
