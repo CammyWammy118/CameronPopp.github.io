@@ -10,6 +10,8 @@
 <body>
 
 <div id="scroll-progress"></div>
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
 <!-- =============================================
      FLOATING NAV
@@ -37,9 +39,10 @@
 
     <h1>Cameron<br><span class="grad">Popp.</span></h1>
 
+    <div class="hero-roles">I <span class="roles-typed" id="roles-text">design in SOLIDWORKS.</span><span class="roles-cursor"></span></div>
+
     <p class="hero-sub">
-      Mechanical design, hands-on fabrication, and engineering leadership &mdash;
-      from CAD models to physical builds.
+      High schooler who builds things, breaks things, and occasionally gets them right on the first try.
     </p>
 
     <div class="contact-bar">
@@ -77,12 +80,14 @@
     <h2 class="section-title reveal">About Me</h2>
     <p class="section-sub reveal">A little bit about who I am</p>
     <p class="reveal">
-      I'm a senior at Eaglecrest High School with a deep passion for engineering, mechanical design, and
-      building things that actually work. I hold nine SOLIDWORKS certifications — including the Certified
-      SOLIDWORKS Expert (CSWE), the highest credential in the program — and have hands-on experience
-      leading robotics teams, designing complex 3D models, and building hardware from scratch. I'm heading
-      to Colorado State University for Mechanical Engineering and can't wait to bring everything I've built
-      so far into the next chapter.
+      Hey &mdash; I'm Cameron. I'm a senior at Eaglecrest who spends an embarrassing amount of time in
+      SOLIDWORKS designing things I then have to actually build. I've earned nine SOLIDWORKS certifications
+      including the CSWE &mdash; the highest level in the program, held by fewer than 1% of users &mdash;
+      which sounds impressive until you realize I did it mostly because I thought it'd be fun. When I'm not
+      CAD-ing something, I'm leading our FRC robotics team, hand-soldering keyboards, or printing parts
+      that may or may not work on the first try (spoiler: usually not). I also speak Spanish pretty well
+      and somehow got into five honor societies. This fall I'm headed to Colorado State University for
+      Mechanical Engineering, and I genuinely cannot wait.
     </p>
   </div>
 </section>
@@ -232,7 +237,8 @@
 <!-- =============================================
      CERTIFICATIONS
      ============================================= -->
-<section id="certifications">
+<section id="certifications" class="section-wrap">
+  <div class="watermark">CERTIFIED</div>
   <div class="container">
     <h2 class="section-title reveal">Certifications</h2>
     <p class="section-sub reveal">SOLIDWORKS certification path from Associate to Expert</p>
@@ -335,7 +341,8 @@
 <!-- =============================================
      PROJECTS
      ============================================= -->
-<section id="projects">
+<section id="projects" class="section-wrap">
+  <div class="watermark">BUILDS</div>
   <div class="container">
     <h2 class="section-title reveal">Projects</h2>
     <p class="section-sub reveal">Things I've actually built</p>
@@ -353,11 +360,11 @@
             on the housing across multiple prints, then programmed custom firmware for key mapping and layers.
           </p>
           <div class="tags">
-            <span class="tag">SOLIDWORKS</span>
-            <span class="tag">3D Printing</span>
-            <span class="tag">Hand Wiring</span>
-            <span class="tag">Firmware</span>
-            <span class="tag">Electronics</span>
+            <span class="tag key-tag">SOLIDWORKS</span>
+            <span class="tag key-tag">3D Printing</span>
+            <span class="tag key-tag">Hand Wiring</span>
+            <span class="tag key-tag">Firmware</span>
+            <span class="tag key-tag">Electronics</span>
           </div>
         </div>
       </div>
