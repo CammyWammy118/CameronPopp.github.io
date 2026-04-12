@@ -897,9 +897,20 @@ a, button, .cert-card, .project-card, .hero-stat, .pill { cursor: none; }
 .cert-card.featured {
   border: 1.5px solid transparent !important;
   background:
-    linear-gradient(135deg, rgba(240,180,41,0.07) 0%, rgba(255,255,255,0.03) 100%) padding-box,
+    linear-gradient(135deg, #fdf6e3 0%, #fffbf0 100%) padding-box,
     conic-gradient(from var(--border-angle), #f0b429, #5b9cf6, #f0b429) border-box;
   animation: rotateBorder 8s linear infinite;
+}
+
+.cert-card.featured h3,
+.cert-card.featured .cert-id,
+.cert-card.featured p,
+.cert-card.featured .cert-date { color: #1c1c1c; }
+
+.cert-card.expert.featured .cert-level {
+  color: #4a2800;
+  background: rgba(240, 180, 41, 0.75);
+  border-color: rgba(200, 130, 0, 0.85);
 }
 
 @keyframes rotateBorder {
